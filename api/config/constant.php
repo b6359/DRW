@@ -1,6 +1,6 @@
 <?php
 //db configuration
-define('DB_NAME', 'watch_factory');
+define('DB_NAME', 'drw');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
