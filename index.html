@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #45a049;
+        }
+        .error-message, .success-message {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .error-message {
+            color: red;
+        }
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="userName" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button id="loginBtn">Login</button>
+    <div class="error-message" id="errorMessage"></div>
+    <div class="success-message" id="successMessage"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#loginBtn').click(function(){
+        var userName = $('#userName').val().trim();
+        var password = $('#password').val().trim();
+        
+        $('#errorMessage').text('');
+        $('#successMessage').text('');
+        
+        if(userName === '' || password === ''){
+            $('#errorMessage').text('Please fill all fields.');
+            return;
+        }
+        
+        $.ajax({
+            url: 'http://127.0.0.1/WatchFactory/api/auth/login.php', 
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ userName: userName, password: password }),
+            success: function(response){
+                if(response.status === 200){
+                    window.location.href = "home.html"
+                } else {
+                    $('#errorMessage').text(response.message);
+                }
+            },
+            error: function(xhr, status, error){
+                $('#errorMessage').text('Something went wrong. Please try again.');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

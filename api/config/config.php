@@ -17,7 +17,7 @@ class DataBase
     public function __construct()
     {
         include_once 'constant.php';
-        $this->connection = new mysqli($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
+        $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         return $this->connection;
     }
 
@@ -29,7 +29,6 @@ class DataBase
         $key = implode("`,`", $k);
         $val = implode("','", $v);
         $q = "INSERT INTO `$tbl` (`$key`) VALUES ('$val')";
-
         if ($this->connection->query($q)) {
             $result = true;
         } else {
@@ -72,21 +71,24 @@ class DataBase
 
     public function DELETE($tbl, $where)
     {
-        $q = "DELETE FROM `$tbl`";
-        $q .= " WHERE ";
+        $q = "DELETE FROM `$tbl` WHERE ";
         foreach ($where as $key => $value) {
-            $q .= "`$key`='$value' AND";
+            $q .= "`$key` = '$value' AND ";
         }
         $q = rtrim($q, " AND ");
+
         if ($this->connection->query($q)) {
-            $result = $this->connection->query($q);
+            if ($this->connection->affected_rows > 0) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            $result = array(
+            return array(
                 "QUERY_ERROR" => $this->connection->error,
                 "QUERY_EXECUTE" => $q,
             );
         }
-        return $result;
     }
 
     public function count_record($tbl, $where = null)
@@ -109,7 +111,7 @@ class DataBase
     {
         $result = $this->connection->query($q);
         if ($result == true || 1) {
-            $result = $this->connection->query($q);
+            $result = $result;
         } else {
             $result = array(
                 "QUERY_ERROR" => $this->connection->error,
@@ -121,9 +123,19 @@ class DataBase
 
     public function UPDATE($tbl, $set, $where)
     {
+        if (isset($where['id'])) {
+            $check_user = $this->SELECT($tbl, null, array("id" => $where['id']));
+            if ($check_user && mysqli_num_rows($check_user) == 0) {
+                return array(
+                    "QUERY_ERROR" => "Record not found",
+                    "QUERY_EXECUTE" => "SELECT * FROM `$tbl` WHERE id = " . $where['id'],
+                );
+            }
+        }
+
         $q = "UPDATE `$tbl` SET ";
         foreach ($set as $key => $val) {
-            $q .= " `$key` = '$val' ,";
+            $q .= " `$key` = '$val',";
         }
         $q = rtrim($q, ',');
         $q = $q . " WHERE ";
@@ -132,14 +144,13 @@ class DataBase
             $q .= " `$key` = '$val'";
         }
         if ($this->connection->query($q)) {
-            $result = $this->connection->query($q);
+            return true;
         } else {
-            $result = array(
+            return array(
                 "QUERY_ERROR" => $this->connection->error,
                 "QUERY_EXECUTE" => $q,
             );
         }
-        return $result;
     }
 
     public function compress_image($source_url, $destination_url, $quality)

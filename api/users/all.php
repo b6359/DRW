@@ -7,30 +7,29 @@ $db = new DataBase();
 $_REQUEST_METHOD = $_SERVER['REQUEST_METHOD'];
 $response = array();
 
-if ($_REQUEST_METHOD === 'POST') {
-    $email = $_POST['email'];
-    $user = $db->SELECT($TBL_PROJECTS, null, null);
+if ($_REQUEST_METHOD === 'GET') {
+    $user = $db->SELECT(TBL_USERS, null, null);
     if ($user == true) {
         $total_rows = mysqli_num_rows($user);
         $user_data = [];
         if (intval($total_rows) > 0) {
             while ($row = $user->fetch_assoc()) {
-                $user_data = array(
+                $user_data[] = array(
                     "id" => intval($row['id']),
-                    "project_name" => $row['project_name'],
-                    "project_type" => $row['project_type'],
-                    "project_logo" => intval($row['project_logo']),
-                    "master_file" => $row['master_file'],
-                    "created_at" => $row['created_at'],
-                    "updated_at" => $row['updated_at'],
+                    "name" => $row['name'],
+                    "mobile" => $row['mobile'],
+                    "userName" => $row['userName'],
+                    "password" => $row['password'],
+                    "createdBy" => $row['createdBy'],
+                    "createdAt" => $row['createdAt']
                 );
             }
-            $response["message"] = $MSG_GET_PROJECT_FOUND;
+            $response["message"] = MSG_GET_ALL_USER_FOUND;
             $response["status"] = 200;
             $response["data"] = $user_data;
 
         } else {
-            $response["message"] = $MSG_GET_PROJECT_NOT_FOUND;
+            $response["message"] = MSG_USER_NOT_FOUND;
             $response["status"] = 404;
             $response["data"] = null;
         }
@@ -38,7 +37,7 @@ if ($_REQUEST_METHOD === 'POST') {
         $response["error"] = $user;
     }
 } else {
-    $response["message"] = $MSG_INVALID_REQUEST;
+    $response["message"] = MSG_METHOD_NOT_ALLOWED;
     $response["status"] = 400;
 }
 
