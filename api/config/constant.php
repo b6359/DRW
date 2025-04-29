@@ -16,6 +16,10 @@ define('TBL_FITTER_SUPPLY', 'tbl_fitter_supply');
 define('TBL_FITTER_SUPPLY_EXTRA_ITEM', 'tbl_fitter_supply_extra_item');
 define('TBL_FITTER_SUPPLY_PRODUCT', 'tbl_fitter_supply_product');
 define('TBL_FITTER_SUPPLY_REJECTION_ITEM', 'tbl_fitter_supply_rejection_item');
+define("TBL_SKU_CREDIT", "tbl_sku_credit");
+define("TBL_SKU_CREDIT_PRODUCT", "tbl_sku_credit_product");
+define("TBL_SKU_CREDIT_EXTRA_ITEM", "tbl_sku_credit_extra_item");
+define("TBL_SKU_CREDIT_ITEM", "tbl_sku_credit_item");
 
 // Messages
 define('MSG_LOGIN_SUCCESS', 'Login Successful!');
@@ -85,3 +89,12 @@ define('MSG_FITTER_SUPPLY_DELETED', 'Fitter supply record deleted successfully.'
 define('MSG_FITTER_SUPPLY_DELETE_FAIL', 'Failed to delete fitter supply record.');
 define('MSG_FITTER_SUPPLY_NOT_FOUND', 'No fitter supply records found.');
 define('MSG_GET_ALL_FITTER_SUPPLY_FOUND', 'Fitter supply records retrieved successfully.');
+
+define("MSG_SKU_CREDIT_ADDED", "SKU Credit added successfully.");
+define('MSG_SKU_CREDIT_ADD_FAIL', 'Failed to add SKU Credit record.');
+define("MSG_SKU_CREDIT_UPDATED", "SKU Credit updated successfully.");
+define("MSG_SKU_CREDIT_DELETED", "SKU Credit deleted successfully.");
+define('MSG_SKU_CREDIT_DELETE_FAIL', 'Failed to delete SKU credit record.');
+define("MSG_SKU_CREDIT_FOUND", "SKU Credit records found.");
+define("MSG_SKU_CREDIT_NOT_FOUND", "No SKU Credit records found.");
+define("MSG_SKU_CREDIT_UPDATE_FAIL", "Failed to update SKU Credit records.");
