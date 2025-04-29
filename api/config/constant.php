@@ -11,6 +11,11 @@ define('TBL_ITEM_MASTER', 'tbl_item_master');
 define('TBL_PRODUCT_ITEM', 'tbl_product_item');
 define('TBL_PRODUCT_MASTER', 'tbl_product_master');
 define('TBL_FITTER_MASTER', 'tbl_fitter_master');
+define('TBL_FITTER_PRODUCT_RATE', 'tbl_fitter_product_rate');
+define('TBL_FITTER_SUPPLY', 'tbl_fitter_supply');
+define('TBL_FITTER_SUPPLY_EXTRA_ITEM', 'tbl_fitter_supply_extra_item');
+define('TBL_FITTER_SUPPLY_PRODUCT', 'tbl_fitter_supply_product');
+define('TBL_FITTER_SUPPLY_REJECTION_ITEM', 'tbl_fitter_supply_rejection_item');
 
 // Messages
 define('MSG_LOGIN_SUCCESS', 'Login Successful!');
@@ -61,3 +66,22 @@ define('MSG_RECORD_NOT_FOUND', 'No records found.');
 define('MSG_MISSING_REQUIRED_FIELDS', 'Missing required fields.');
 define('MSG_NO_FIELDS_TO_UPDATE', 'No fields provided for update.');
 define('MSG_MISSING_ID', 'Missing ID.');
+
+define('MSG_FITTER_PRODUCT_RATE_ADDED', 'Fitter product rate added successfully.');
+define('MSG_FITTER_PRODUCT_RATE_ADD_FAIL', 'Failed to add fitter product rate.');
+define('MSG_FITTER_PRODUCT_RATE_UPDATED', 'Fitter product rate updated successfully.');
+define('MSG_FITTER_PRODUCT_RATE_UPDATE_FAIL', 'Failed to update fitter product rate.');
+define('MSG_FITTER_PRODUCT_RATES_FOUND', 'Fitter product rates fetched successfully.');
+define('MSG_FITTER_PRODUCT_RATES_NOT_FOUND', 'No fitter product rates found.');
+define('MSG_FITTER_PRODUCT_RATE_DELETED', 'Fitter product rate deleted successfully.');
+define('MSG_FITTER_PRODUCT_RATE_DELETE_FAIL', 'Failed to delete fitter product rate.');
+define('MSG_REQUIRED_FIELDS_MISSING', 'Required fields are missing.');
+
+define('MSG_FITTER_SUPPLY_ADDED', 'Fitter supply record added successfully.');
+define('MSG_FITTER_SUPPLY_ADD_FAIL', 'Failed to add fitter supply record.');
+define('MSG_FITTER_SUPPLY_UPDATED', 'Fitter supply record updated successfully.');
+define('MSG_FITTER_SUPPLY_UPDATE_FAIL', 'Failed to update fitter supply record.');
+define('MSG_FITTER_SUPPLY_DELETED', 'Fitter supply record deleted successfully.');
+define('MSG_FITTER_SUPPLY_DELETE_FAIL', 'Failed to delete fitter supply record.');
+define('MSG_FITTER_SUPPLY_NOT_FOUND', 'No fitter supply records found.');
+define('MSG_GET_ALL_FITTER_SUPPLY_FOUND', 'Fitter supply records retrieved successfully.');
