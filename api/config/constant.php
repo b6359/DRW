@@ -20,6 +20,11 @@ define("TBL_SKU_CREDIT", "tbl_sku_credit");
 define("TBL_SKU_CREDIT_PRODUCT", "tbl_sku_credit_product");
 define("TBL_SKU_CREDIT_EXTRA_ITEM", "tbl_sku_credit_extra_item");
 define("TBL_SKU_CREDIT_ITEM", "tbl_sku_credit_item");
+define("TBL_ITEM_CREDIT_DEBIT_MASTER", "tbl_item_credit_debit_master");
+define("TBL_ITEM_CREDIT_DEBIT_ITEM", "tbl_item_credit_debit_item");
+define('TBL_VENDOR_MASTER', 'tbl_vendor_master');
+define('TBL_SALARY', 'tbl_salary');
+define('TBL_UPAD', 'tbl_upad');
 
 // Messages
 define('MSG_LOGIN_SUCCESS', 'Login Successful!');
@@ -98,3 +103,27 @@ define('MSG_SKU_CREDIT_DELETE_FAIL', 'Failed to delete SKU credit record.');
 define("MSG_SKU_CREDIT_FOUND", "SKU Credit records found.");
 define("MSG_SKU_CREDIT_NOT_FOUND", "No SKU Credit records found.");
 define("MSG_SKU_CREDIT_UPDATE_FAIL", "Failed to update SKU Credit records.");
+
+define("MSG_ITEM_CREDIT_DEBIT_ADDED", "Item Credit/Debit added successfully.");
+define("MSG_ITEM_CREDIT_DEBIT_UPDATED", "Item Credit/Debit updated successfully.");
+define("MSG_ITEM_CREDIT_DEBIT_DELETED", "Item Credit/Debit deleted successfully.");
+define("MSG_ITEM_CREDIT_DEBIT_LIST", "Item Credit/Debit list fetched successfully.");
+define("MSG_ITEM_CREDIT_DEBIT_FAILED", "Failed to process Item Credit/Debit.");
+
+define('MSG_VENDOR_ADDED', 'Vendor added successfully.');
+define('MSG_VENDOR_ADD_FAIL', 'Failed to add vendor.');
+define('MSG_DATA_NOT_FOUND', 'No data found.');
+
+define('MSG_SALARY_ADDED', 'Salary added successfully.');
+define('MSG_SALARY_ADD_FAIL', 'Failed to add salary.');
+define('MSG_SALARY_UPDATED', 'Salary updated successfully.');
+define('MSG_SALARY_UPDATE_FAIL', 'Failed to update salary.');
+define('MSG_SALARY_DELETED', 'Salary deleted successfully.');
+define('MSG_SALARY_DELETE_FAIL', 'Failed to delete salary.');
+
+define('MSG_UPAD_ADDED', 'Upad added successfully.');
+define('MSG_UPAD_ADD_FAIL', 'Failed to add Upad.');
+define('MSG_UPAD_UPDATED', 'Upad updated successfully.');
+define('MSG_UPAD_UPDATE_FAIL', 'Failed to update Upad.');
+define('MSG_UPAD_DELETED', 'Upad deleted successfully.');
+define('MSG_UPAD_DELETE_FAIL', 'Failed to delete Upad.');
