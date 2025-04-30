@@ -26,10 +26,13 @@ if ($_REQUEST_METHOD === 'PUT') {
         if ($updateFitterSupply) {
             // Update Product Master IDs in tbl_fitter_supply_product
             $db->DELETE(TBL_FITTER_SUPPLY_PRODUCT, "fitterSupplyId = $fitterSupplyId");
-            foreach ($productMasterIds as $productMasterId) {
+            foreach ($productMasterIds as $product) {
+                $productMasterId = $product['productMasterId'];
+                $productQty = (int)$product['qty'];
                 $fitterSupplyProductData = array(
                     'fitterSupplyId' => $fitterSupplyId,
-                    'productMasterId' => $productMasterId,
+                    'productMasterId' => $productMasterId,                    
+                    'qty' => $productQty
                 );
                 $db->INSERT(TBL_FITTER_SUPPLY_PRODUCT, $fitterSupplyProductData);
             }
@@ -37,10 +40,13 @@ if ($_REQUEST_METHOD === 'PUT') {
             // Update Extra Item IDs in tbl_fitter_supply_extra_item
             if ($extraItemIds) {
                 $db->DELETE(TBL_FITTER_SUPPLY_EXTRA_ITEM, "fitterSupplyId = $fitterSupplyId");
-                foreach ($extraItemIds as $extraItemId) {
+                foreach ($extraItemIds as $extraItem) {
+                    $extraItemId = $extraItem['extraItemId'];
+                    $extraQty = (int)$extraItem['qty'];
                     $fitterSupplyExtraItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
-                        'extraItemId' => $extraItemId
+                        'extraItemId' => $extraItemId,
+                        'qty' => $extraQty
                     );
                     $db->INSERT(TBL_FITTER_SUPPLY_EXTRA_ITEM, $fitterSupplyExtraItemData);
                 }
@@ -49,10 +55,13 @@ if ($_REQUEST_METHOD === 'PUT') {
             // Update Rejection Item IDs in tbl_fitter_supply_rejection_item
             if ($rejectionItemIds) {
                 $db->DELETE(TBL_FITTER_SUPPLY_REJECTION_ITEM, "fitterSupplyId = $fitterSupplyId");
-                foreach ($rejectionItemIds as $rejectionItemId) {
+                foreach ($rejectionItemIds as $rejectionItem) {
+                    $rejectionItemId = $rejectionItem['rejectionItemId'];
+                    $rejectionQty = (int)$rejectionItem['qty'];
                     $fitterSupplyRejectionItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
-                        'rejectionItemId' => $rejectionItemId
+                        'rejectionItemId' => $rejectionItemId,
+                        'qty' => $rejectionQty
                     );
                     $db->INSERT(TBL_FITTER_SUPPLY_REJECTION_ITEM, $fitterSupplyRejectionItemData);
                 }

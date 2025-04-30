@@ -25,6 +25,8 @@ define("TBL_ITEM_CREDIT_DEBIT_ITEM", "tbl_item_credit_debit_item");
 define('TBL_VENDOR_MASTER', 'tbl_vendor_master');
 define('TBL_SALARY', 'tbl_salary');
 define('TBL_UPAD', 'tbl_upad');
+define('TBL_REPAIRING', 'tbl_repairing');
+define('TBL_REPAIRING_PRODUCT', 'tbl_repairing_product');
 
 // Messages
 define('MSG_LOGIN_SUCCESS', 'Login Successful!');

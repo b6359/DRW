@@ -11,11 +11,8 @@ if ($_REQUEST_METHOD === 'POST') {
 
     $fitterId = isset($input['fitterId']) ? (int)$input['fitterId'] : null;
     $productMasterIds = isset($input['productMasterIds']) ? $input['productMasterIds'] : [];
-    $productMasterQty = isset($input['productMasterQty']) ? $input['productMasterQty'] : 0;
     $extraItemIds = isset($input['extraItemIds']) ? $input['extraItemIds'] : [];
-    $extraItemQty = isset($input['extraItemQty']) ? $input['extraItemQty'] : 0;
     $itemIds = isset($input['itemIds']) ? $input['itemIds'] : [];
-    $itemQty = isset($input['itemQty']) ? $input['itemQty'] : 0;
     $createdBy = isset($input['createdBy']) ? (int)$input['createdBy'] : null;
 
     if ($fitterId && $createdBy) {
@@ -27,26 +24,29 @@ if ($_REQUEST_METHOD === 'POST') {
         $skuCreditId = $db->INSERT(TBL_SKU_CREDIT, $skuCreditData);
 
         if ($skuCreditId) {
-            // Add products
-            foreach ($productMasterIds as $productMasterId) {
+            foreach ($productMasterIds as $product) {
+                $productMasterId = $product['productMasterId'];
+                $productQty = (int)$product['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_PRODUCT, [
                     'skuCreditId' => $skuCreditId,
                     'productMasterId' => $productMasterId,
-                    'qty' => $productMasterQty,
+                    'qty' => $productQty,
                 ]);
             }
 
-            // Add extra items
-            foreach ($extraItemIds as $itemId) {
+            foreach ($extraItemIds as $extraItem) {
+                $extraItemId = $extraItem['extraItemId'];
+                $extraQty = (int)$extraItem['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_EXTRA_ITEM, [
                     'skuCreditId' => $skuCreditId,
-                    'extraItemId' => $itemId,
-                    'qty' => $extraItemQty
+                    'extraItemId' => $extraItemId,
+                    'qty' => $extraQty
                 ]);
             }
 
-            // Add returned items
-            foreach ($itemIds as $itemId) {
+            foreach ($itemIds as $items) {
+                $itemId = $items['itemId'];
+                $itemQty = (int)$items['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_ITEM, [
                     'skuCreditId' => $skuCreditId,
                     'itemId' => $itemId,

@@ -12,11 +12,8 @@ if ($_REQUEST_METHOD === 'PUT') {
     $id = isset($input['id']) ? (int)$input['id'] : null;
     $fitterId = isset($input['fitterId']) ? (int)$input['fitterId'] : null;
     $productMasterIds = isset($input['productMasterIds']) ? $input['productMasterIds'] : [];
-    $productMasterQty = isset($input['productMasterQty']) ? $input['productMasterQty'] : 0;
     $extraItemIds = isset($input['extraItemIds']) ? $input['extraItemIds'] : [];
-    $extraItemQty = isset($input['extraItemQty']) ? $input['extraItemQty'] : 0;
     $itemIds = isset($input['itemIds']) ? $input['itemIds'] : [];
-    $itemQty = isset($input['itemQty']) ? $input['itemQty'] : 0;
     $createdBy = isset($input['createdBy']) ? (int)$input['createdBy'] : null;
 
     if ($id && $fitterId) {
@@ -30,34 +27,36 @@ if ($_REQUEST_METHOD === 'PUT') {
             $db->DELETE(TBL_SKU_CREDIT_EXTRA_ITEM, ['skuCreditId' => $id]);
             $db->DELETE(TBL_SKU_CREDIT_ITEM, ['skuCreditId' => $id]);
 
-            // Step 3: Insert new products
-            foreach ($productMasterIds as $productMasterId) {
+            foreach ($productMasterIds as $product) {
+                $productMasterId = $product['productMasterId'];
+                $productQty = (int)$product['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_PRODUCT, [
-                    'skuCreditId' => $id,
+                    'skuCreditId' => $skuCreditId,
                     'productMasterId' => $productMasterId,
-                    'qty' => $productMasterQty,
+                    'qty' => $productQty,
                 ]);
             }
 
-            // Step 4: Insert new extra items
-            foreach ($extraItemIds as $itemId) {
+            foreach ($extraItemIds as $extraItem) {
+                $extraItemId = $extraItem['extraItemId'];
+                $extraQty = (int)$extraItem['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_EXTRA_ITEM, [
-                    'skuCreditId' => $id,
-                    'itemId' => $itemId,
-                    'qty' => $extraItemQty
-
+                    'skuCreditId' => $skuCreditId,
+                    'extraItemId' => $extraItemId,
+                    'qty' => $extraQty
                 ]);
             }
 
-            // Step 5: Insert new returned items
-            foreach ($itemIds as $itemId) {
+            foreach ($itemIds as $items) {
+                $itemId = $items['itemId'];
+                $itemQty = (int)$items['qty'];
                 $db->INSERT(TBL_SKU_CREDIT_ITEM, [
-                    'skuCreditId' => $id,
+                    'skuCreditId' => $skuCreditId,
                     'itemId' => $itemId,
                     'qty' => $itemQty
-
                 ]);
             }
+
 
             $response['status'] = 200;
             $response['message'] = MSG_SKU_CREDIT_UPDATED;

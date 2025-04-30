@@ -14,10 +14,7 @@ if ($_REQUEST_METHOD === 'POST') {
     $extraItemIds = isset($input['extraItemIds']) ? $input['extraItemIds'] : null;  // Array of extraItemIds
     $rejectionItemIds = isset($input['rejectionItemIds']) ? $input['rejectionItemIds'] : null;  // Array of rejectionItemIds
     $createdBy = isset($input['createdBy']) ? $input['createdBy'] : null;
-    $productMasterQty = isset($input['productMasterQty']) ? (int)$input['productMasterQty'] : 0;
-    $extraItemQty = isset($input['extraItemQty']) ? (int)$input['extraItemQty'] : 0;
-    $rejectionItemQty = isset($input['rejectionItemQty']) ? (int)$input['rejectionItemQty'] : 0;
-
+    
     if ($fitterId && $productMasterIds && $createdBy) {
         $fitterSupplyData = array(
             'fitterId' => $fitterId,
@@ -29,7 +26,10 @@ if ($_REQUEST_METHOD === 'POST') {
         if ($fitterSupplyInsert) {
             $fitterSupplyId = $db->connection->insert_id;
 
-            foreach ($productMasterIds as $productMasterId) {
+            foreach ($productMasterIds as $product) {
+                $productMasterId = $product['productMasterId'];
+                $productQty = (int)$product['qty'];
+            
                 $getItemMasterIdsQuery = "
                     SELECT pi.itemMasterId 
                     FROM tbl_product_item pi
@@ -42,7 +42,7 @@ if ($_REQUEST_METHOD === 'POST') {
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $itemMasterId = $row['itemMasterId'];
-                        $updateItemQuery = "UPDATE tbl_item_master SET qty = qty - $productMasterQty WHERE id = $itemMasterId";
+                        $updateItemQuery = "UPDATE tbl_item_master SET qty = qty - $productQty WHERE id = $itemMasterId";
                         $db->ROW_QUERY($updateItemQuery);
                     }
                 }
@@ -50,34 +50,40 @@ if ($_REQUEST_METHOD === 'POST') {
                 $fitterSupplyProductData = array(
                     'fitterSupplyId' => $fitterSupplyId,
                     'productMasterId' => $productMasterId,                    
-                    'qty' => $productMasterQty
+                    'qty' => $productQty
                 );
                 $db->INSERT(TBL_FITTER_SUPPLY_PRODUCT, $fitterSupplyProductData);
             }
 
             if ($extraItemIds) {
-                foreach ($extraItemIds as $extraItemId) {
-                    $updateExtraItemQuery = "UPDATE tbl_item_master SET qty = qty - $extraItemQty WHERE id = $extraItemId";
-                    $updateItem = $db->ROW_QUERY($updateExtraItemQuery);
-
+                foreach ($extraItemIds as $extraItem) {
+                    $extraItemId = $extraItem['extraItemId'];
+                    $extraQty = (int)$extraItem['qty'];
+                
+                    $updateExtraItemQuery = "UPDATE tbl_item_master SET qty = qty - $extraQty WHERE id = $extraItemId";
+                    $db->ROW_QUERY($updateExtraItemQuery);
+                
                     $fitterSupplyExtraItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
                         'extraItemId' => $extraItemId,
-                        'qty' => $extraItemQty
+                        'qty' => $extraQty
                     );
                     $db->INSERT(TBL_FITTER_SUPPLY_EXTRA_ITEM, $fitterSupplyExtraItemData);
                 }
             }
 
             if ($rejectionItemIds) {
-                foreach ($rejectionItemIds as $rejectionItemId) {
-                    $updateRejectionItemQuery = "UPDATE tbl_item_master SET qty = qty - $rejectionItemQty WHERE id = $rejectionItemId";
-                    $updateItem = $db->ROW_QUERY($updateRejectionItemQuery);
-
+                foreach ($rejectionItemIds as $rejectionItem) {
+                    $rejectionItemId = $rejectionItem['rejectionItemId'];
+                    $rejectionQty = (int)$rejectionItem['qty'];
+                
+                    $updateRejectionItemQuery = "UPDATE tbl_item_master SET qty = qty - $rejectionQty WHERE id = $rejectionItemId";
+                    $db->ROW_QUERY($updateRejectionItemQuery);
+                
                     $fitterSupplyRejectionItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
                         'rejectionItemId' => $rejectionItemId,
-                        'qty' => $rejectionItemQty
+                        'qty' => $rejectionQty
                     );
                     $db->INSERT(TBL_FITTER_SUPPLY_REJECTION_ITEM, $fitterSupplyRejectionItemData);
                 }
