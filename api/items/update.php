@@ -11,6 +11,7 @@ if ($_REQUEST_METHOD === 'PUT') {
     $id = isset($input['id']) ? (int)$input['id'] : null;
     $itemName = isset($input['itemName']) ? trim($input['itemName']) : null;
     $modelNo  = isset($input['modelNo']) ? trim($input['modelNo']) : null;
+    $rate  = isset($input['rate']) ? trim($input['rate']) : 0;
     $qty      = isset($input['qty']) ? (int)$input['qty'] : null;
     $createdBy = isset($input['createdBy']) ? (int)$input['createdBy'] : null;
 
@@ -19,6 +20,7 @@ if ($_REQUEST_METHOD === 'PUT') {
             "itemName"  => $itemName,
             "modelNo"   => $modelNo,
             "qty"       => $qty,
+            "rate"       => $rate,
             "createdBy" => $createdBy
         );
 

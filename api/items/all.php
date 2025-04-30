@@ -16,6 +16,7 @@ if ($_REQUEST_METHOD === 'GET') {
                 "id"        => intval($row['id']),
                 "itemName"  => $row['itemName'],
                 "modelNo"   => $row['modelNo'],
+                "rate"   => $row['rate'],
                 "qty"       => intval($row['qty']),
                 "createdBy" => intval($row['createdBy']),
                 "createdAt" => $row['createdAt']
