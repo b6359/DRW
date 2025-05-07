@@ -33,8 +33,8 @@ if ($_REQUEST_METHOD === 'POST') {
             $productMasterId = $db->connection->insert_id;
 
             foreach ($itemMasterIds as $itemMasterId) {
-                // $updateItemQuery = "UPDATE tbl_item_master SET qty = qty - $qty WHERE id = $itemMasterId";   
-                // $updateItem = $db->ROW_QUERY($updateItemQuery);
+                 $updateItemQuery = "UPDATE tbl_item_master SET qty = qty - $qty WHERE id = $itemMasterId";   
+                 $updateItem = $db->ROW_QUERY($updateItemQuery);
 
                 $productItemData = array(
                     "productMasterId" => $productMasterId,
