@@ -1,0 +1,51 @@
+  <div class="top-model">
+    <h2>Item Master</h2>
+
+    <!-- Search and Add button section -->
+    <div class="search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Items...."
+        style="padding: 5px; border-radius: 4px; border: 1px solid #ccc;"
+      />
+      <button id="openModalBtn" style="width: 125px;">Add Data</button> <!-- FIXED ID -->
+    </div>
+  </div>
+
+  <!-- Modal for adding item -->
+  <div id="itemModal" class="modal" style="display:none;">
+   <div class="modal-content" style="padding: 20px; background: #fff; border-radius: 5px;">
+      <span class="close" style="float:right; cursor:pointer;">&times;</span>
+      <h3>Add New Item</h3>
+      <form id="itemForm">
+        <div class="form-row">
+          <label>Item Name:<input type="text" name="itemName" required></label>
+          <label>Model No:<input type="text" name="modelNo" required></label>
+        </div>
+        <div class="form-row">
+          <label>Rate:<input type="number" name="rate" step="0.01" required></label>
+          <label>Quantity:<input type="number" name="qty" required></label>
+        </div>
+
+        <input type="hidden" name="createdBy" value="1" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Table to show items -->
+  <table id="itemTable" border="1" style="width:100%; margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Model No</th>
+        <th>Rate</th>
+        <th>Qty</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>

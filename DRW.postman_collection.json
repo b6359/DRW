@@ -1,0 +1,1692 @@
+{
+	"info": {
+		"_postman_id": "aba9415d-4808-44d5-b3b2-a4d6cbab04bc",
+		"name": "WatchFactory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11433799"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/auth/login.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"auth",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"manager\",\r\n    \"mobile\":\"1234567890\",\r\n    \"userName\":\"manager\",\r\n    \"password\":\"manager\",\r\n    \"createdBy\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/users/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"users",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/users/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"users",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"admin\",\r\n    \"mobile\":\"9876543210\",\r\n    \"userName\":\"admin\",\r\n    \"password\":\"admin\",\r\n    \"createdBy\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/users/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"users",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/users/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"users",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Add Item",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemName\":\"glass\",\r\n    \"modelNo\":\"GL10\",\r\n    \"qty\":10,\r\n    \"createdBy\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/items/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"items",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Items",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/items/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"items",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/items/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"items",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":100,\r\n    \"itemName\":\"belt\",\r\n    \"modelNo\":\"KT10\",\r\n    \"qty\":10,\r\n    \"createdBy\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/items/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"items",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Fastrack\",\r\n    \"modelNo\": \"FS12\",\r\n    \"itemMasterIds\": [1,2],\r\n    \"qty\": 5,\r\n    \"rate\": 99.99,\r\n    \"pendingForBelt\": 0,\r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/products/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"products",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/products/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"products",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/products/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"products",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"productName\": \"Rolex\",\r\n    \"modelNo\": \"R123\",\r\n    \"itemMasterIds\": [1,2],\r\n    \"qty\": 100,\r\n    \"rate\": 99.99,\r\n    \"pendingForBelt\": 0,\r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/products/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"products",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/products/byid.php?id=18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"products",
+								"byid.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fitter",
+			"item": [
+				{
+					"name": "Add Fitter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fitterName\": \"Ramesh Fitter\",\r\n  \"marko\": \"RF123\",\r\n  \"mobile\": \"9876543210\",\r\n  \"address\": \"Surat, Gujarat\",\r\n  \"empCount\": 10,\r\n  \"createdBy\": 1,\r\n  \"pendingUpad\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fitter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"fitterName\": \"Ramesh Fitter\",\r\n  \"marko\": \"RF123\",\r\n  \"mobile\": \"9876543210\",\r\n  \"address\": \"Surat, Gujarat\",\r\n  \"empCount\": 5,\r\n  \"createdBy\": 1,\r\n  \"pendingUpad\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Fitter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Fitter",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FitterRate",
+			"item": [
+				{
+					"name": "Add Rate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fitterId\": 1,\r\n    \"productMasterId\": 18,\r\n    \"rate\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter-product-rate/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter-product-rate",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Rate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"fitterId\": 1,\r\n    \"productMasterId\": 18,\r\n    \"rate\": 22\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter-product-rate/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter-product-rate",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter-product-rate/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter-product-rate",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/fitter-product-rate/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"fitter-product-rate",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supply",
+			"item": [
+				{
+					"name": "Add Supply",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fitterId\": 1,\r\n    \"productMasterIds\": [\r\n        { \"productMasterId\": 18, \"qty\": 5 }\r\n    ],\r\n    \"extraItemIds\": [\r\n        { \"extraItemId\": 1, \"qty\": 1 } \r\n    ],\r\n    \"rejectionItemIds\": [\r\n        { \"rejectionItemId\": 1, \"qty\": 1 } \r\n    ], \r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/supply/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"supply",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Supply",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/supply/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"supply",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Supply",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"fitterId\": 1,\r\n    \"productMasterIds\": [\r\n        { \"productMasterId\": 18, \"qty\": 5 }\r\n    ],\r\n    \"extraItemIds\": [\r\n        { \"extraItemId\": 1, \"qty\": 1 } \r\n    ],\r\n    \"rejectionItemIds\": [\r\n        { \"rejectionItemId\": 1, \"qty\": 1 } \r\n    ], \r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/supply/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"supply",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Supply",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/supply/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"supply",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SKU Credit",
+			"item": [
+				{
+					"name": "Add SKU Credit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"fitterId\": 1,\r\n    \"productMasterIds\": [\r\n        { \"productMasterId\": 18, \"qty\": 5 }\r\n    ],\r\n    \"extraItemIds\": [\r\n        { \"extraItemId\": 1, \"qty\": 1 } \r\n    ],\r\n    \"itemIds\": [\r\n        { \"itemId\": 1, \"qty\": 1 } \r\n    ], \r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/skucredit/add.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"skucredit",
+								"add.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All SKU Credit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/skucredit/all.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"skucredit",
+								"all.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update SKU Credit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"id\": 1,\r\n    \"fitterId\": 1,\r\n    \"productMasterIds\": [\r\n        { \"productMasterId\": 18, \"qty\": 5 }\r\n    ],\r\n    \"extraItemIds\": [\r\n        { \"extraItemId\": 1, \"qty\": 1 } \r\n    ],\r\n    \"itemIds\": [\r\n        { \"itemId\": 1, \"qty\": 1 } \r\n    ], \r\n    \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/skucredit/update.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"skucredit",
+								"update.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete SKU Credit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/skucredit/delete.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"skucredit",
+								"delete.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ItemCreditDebit",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"vendorId\": 1,\r\n  \"qty\": 10,\r\n  \"creditOrDebit\": 1,\r\n  \"itemIds\": [1, 2],\r\n  \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/item-credit-debit/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"item-credit-debit",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/item-credit-debit/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"item-credit-debit",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"vendorId\": 1,\r\n  \"qty\": 10,\r\n  \"creditOrDebit\": 1,\r\n  \"itemIds\": [1, 2],\r\n  \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/item-credit-debit/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"item-credit-debit",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/item-credit-debit/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"item-credit-debit",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Vendor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nirav Bhai\",\r\n    \"address\":\"Surat\",\r\n    \"mobile\":\"1234567890\",\r\n    \"createdBy\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/vendor/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"vendor",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Get All Vendor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/vendor/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"vendor",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salary",
+			"item": [
+				{
+					"name": "Get Salary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/salary/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"salary",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Salary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fitterId\": 1,\r\n  \"amount\": 3500.00,\r\n  \"fromDate\": \"2024-04-01\",\r\n  \"toDate\": \"2024-04-30\",\r\n  \"createdBy\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/salary/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"salary",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Salary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"fitterId\": 2,\r\n  \"amount\": 3500.00,\r\n  \"fromDate\": \"2024-04-01\",\r\n  \"toDate\": \"2024-04-30\",\r\n  \"createdBy\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/salary/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"salary",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Salary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/salary/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"salary",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Upad",
+			"item": [
+				{
+					"name": "Add Upad",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fitterId\": 1,\r\n  \"amount\": 1500.00,\r\n  \"remark\": \"for hospital\",\r\n  \"createdBy\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/upad/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"upad",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Upad",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/upad/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"upad",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Upad",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"fitterId\": 1,\r\n  \"amount\": 1400.00,\r\n  \"remark\": \"for hospital\",\r\n  \"createdBy\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/upad/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"upad",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Upad",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/upad/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"upad",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repairing",
+			"item": [
+				{
+					"name": "Add Repairing",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fitterId\": 1,\r\n  \"productMasterIds\": [\r\n    { \"productMasterId\": 18, \"qty\": 5 }\r\n  ],\r\n  \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/repairing/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"repairing",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Repairing",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/repairing/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"repairing",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Repairing",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"fitterId\": 1,\r\n  \"productMasterIds\": [\r\n    { \"productMasterId\": 18, \"qty\": 5 }\r\n  ],\r\n  \"createdBy\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/repairing/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"repairing",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Repairing",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1/DRW/api/repairing/master.php",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"DRW",
+								"api",
+								"repairing",
+								"master.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

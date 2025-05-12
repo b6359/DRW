@@ -85,6 +85,8 @@ $(document).ready(function(){
             data: JSON.stringify({ userName: userName, password: password }),
             success: function(response){
                 if(response.status === 200){
+                     // Store username
+                    localStorage.setItem('loggedInUser', response.data.userName);
                     window.location.href = "home.html"
                 } else {
                     $('#errorMessage').text(response.message);
