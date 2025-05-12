@@ -12,16 +12,16 @@ if ($_REQUEST_METHOD === 'POST') {
     $productName = isset($input['productName']) ? $input['productName'] : null;
     $modelNo = isset($input['modelNo']) ? $input['modelNo'] : null;
     $itemMasterIds = isset($input['itemMasterIds']) ? $input['itemMasterIds'] : null;  // Array of itemMasterIds
-    $qty = isset($input['qty']) ? $input['qty'] : null;
+    // $qty = isset($input['qty']) ? $input['qty'] : null;
     $rate = isset($input['rate']) ? $input['rate'] : null;
     $pendingForBelt = isset($input['pendingForBelt']) ? $input['pendingForBelt'] : null;
     $createdBy = isset($input['createdBy']) ? $input['createdBy'] : null;
 
-    if ($productName && $modelNo && $itemMasterIds && $qty !== null && $rate !== null && $createdBy) {
+    if ($productName && $modelNo && $itemMasterIds && $rate !== null && $createdBy) {
         $productData = array(
             "productName" => $productName,
             "modelNo" => $modelNo,
-            "qty" => $qty,
+            // "qty" => $qty,
             "rate" => $rate,
             "pendingForBelt" => $pendingForBelt,
             "createdBy" => $createdBy
@@ -32,13 +32,13 @@ if ($_REQUEST_METHOD === 'POST') {
         if ($productInsert) {
             $productMasterId = $db->connection->insert_id;
 
-            foreach ($itemMasterIds as $itemMasterId) {
-                // $updateItemQuery = "UPDATE tbl_item_master SET qty = qty - $qty WHERE id = $itemMasterId";   
-                // $updateItem = $db->ROW_QUERY($updateItemQuery);
-
+            foreach ($itemMasterIds as $item) {
+                $itemMasterId = $item['itemMasterId'];
+                $itemQty = (int)$item['qty'];
                 $productItemData = array(
                     "productMasterId" => $productMasterId,
-                    "itemMasterId" => $itemMasterId
+                    "itemMasterId" => $itemMasterId,
+                    "qty" => $itemQty,
                 );
                 $productItemInsert = $db->INSERT(TBL_PRODUCT_ITEM, $productItemData);
             }

@@ -13,16 +13,16 @@ if ($_REQUEST_METHOD === 'PUT') {
     $productName       = isset($input['productName']) ? trim($input['productName']) : null;
     $modelNo           = isset($input['modelNo']) ? trim($input['modelNo']) : null;
     $itemMasterIds     = isset($input['itemMasterIds']) ? $input['itemMasterIds'] : null;
-    $qty               = isset($input['qty']) ? (int)$input['qty'] : null;
+    // $qty               = isset($input['qty']) ? (int)$input['qty'] : null;
     $rate              = isset($input['rate']) ? (float)$input['rate'] : null;
     $pendingForBelt   = isset($input['pendingForBelt']) ? (int)$input['pendingForBelt'] : 0;
     $createdBy         = isset($input['createdBy']) ? (int)$input['createdBy'] : null;
 
-    if ($productId && ($productName || $modelNo || $itemMasterIds || $qty || $rate || $pendingForBelt || $createdBy)) {
+    if ($productId && ($productName || $modelNo || $itemMasterIds || $rate || $pendingForBelt || $createdBy)) {
         $update_data = array();
         if ($productName) $update_data['productName'] = $productName;
         if ($modelNo) $update_data['modelNo'] = $modelNo;
-        if ($qty) $update_data['qty'] = $qty;
+        // if ($qty) $update_data['qty'] = $qty;
         if ($rate) $update_data['rate'] = $rate;
         if (isset($pendingForBelt)) $update_data['pendingForBelt'] = $pendingForBelt;
         if ($createdBy) $update_data['createdBy'] = $createdBy;
@@ -34,10 +34,13 @@ if ($_REQUEST_METHOD === 'PUT') {
             if ($itemMasterIds) {
                 $db->DELETE(TBL_PRODUCT_ITEM, array("productMasterId" => $productId));
 
-                foreach ($itemMasterIds as $itemMasterId) {
+                foreach ($itemMasterIds as $item) {
+                    $itemMasterId = $item['itemMasterId'];
+                    $itemQty = (int)$item['qty'];
                     $insert_item_relation = array(
                         "productMasterId" => $productId,
-                        "itemMasterId"    => $itemMasterId
+                        "itemMasterId"    => $itemMasterId,
+                        "qty"    => $itemQty
                     );
                     $db->INSERT(TBL_PRODUCT_ITEM, $insert_item_relation);
                 }
