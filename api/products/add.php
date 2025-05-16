@@ -12,7 +12,6 @@ if ($_REQUEST_METHOD === 'POST') {
     $productName = isset($input['productName']) ? $input['productName'] : null;
     $modelNo = isset($input['modelNo']) ? $input['modelNo'] : null;
     $itemMasterIds = isset($input['itemMasterIds']) ? $input['itemMasterIds'] : null;  // Array of itemMasterIds
-    // $qty = isset($input['qty']) ? $input['qty'] : null;
     $rate = isset($input['rate']) ? $input['rate'] : null;
     $pendingForBelt = isset($input['pendingForBelt']) ? $input['pendingForBelt'] : null;
     $createdBy = isset($input['createdBy']) ? $input['createdBy'] : null;
@@ -21,7 +20,6 @@ if ($_REQUEST_METHOD === 'POST') {
         $productData = array(
             "productName" => $productName,
             "modelNo" => $modelNo,
-            // "qty" => $qty,
             "rate" => $rate,
             "pendingForBelt" => $pendingForBelt,
             "createdBy" => $createdBy

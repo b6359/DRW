@@ -12,6 +12,12 @@ if ($_REQUEST_METHOD === 'DELETE') {
 
     if ($itemId) {
         $where = array("id" => $itemId);
+        $whereEx = array("extraItemId" => $itemId);
+        $whereRe = array("rejectionItemId" => $itemId);
+        $whereCr = array("itemId" => $itemId);
+        $deleteEx = $db->DELETE(TBL_FITTER_SUPPLY_EXTRA_ITEM, $whereEx);
+        $deleteRej = $db->DELETE(TBL_FITTER_SUPPLY_REJECTION_ITEM, $whereRe);
+        $deleteCr = $db->DELETE(TBL_ITEM_CREDIT_DEBIT_ITEM, $whereCr);
         $delete_item = $db->DELETE(TBL_ITEM_MASTER, $where);
 
         if ($delete_item) {
