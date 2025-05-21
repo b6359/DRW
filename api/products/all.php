@@ -18,7 +18,7 @@ if ($_REQUEST_METHOD === 'GET') {
                GROUP_CONCAT(im.id) AS itemMasterIds,
                GROUP_CONCAT(im.itemName) AS itemNames,
                GROUP_CONCAT(im.modelNo) AS itemModelNos,
-               GROUP_CONCAT(im.qty) AS itemQtys
+               GROUP_CONCAT(pi.qty) AS itemQtys
         FROM tbl_product_master p
         JOIN tbl_product_item pi ON p.id = pi.productMasterId
         JOIN tbl_item_master im ON pi.itemMasterId = im.id
