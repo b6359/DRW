@@ -29,6 +29,27 @@ if ($_REQUEST_METHOD === 'PUT') {
             foreach ($productMasterIds as $product) {
                 $productMasterId = $product['productMasterId'];
                 $productQty = (int)$product['qty'];
+                $productRate = (int)$product['rate'];
+
+                $rateResult = $db->connection->query("SELECT * FROM tbl_fitter_product_rate WHERE fitterId=$fitterId AND productMasterId=$productMasterId");
+
+                if ($rateResult->num_rows > 0) {
+                    $rate_data = array(
+                        'rate' => $productRate
+                    );
+                    $rate_where = array(
+                        'fitterId' => $fitterId,
+                        'productMasterId' => $productMasterId
+                    );
+                    $update = $db->UPDATE(TBL_FITTER_PRODUCT_RATE, $rate_data, $rate_where);
+                } else {
+                    $R_data = array(
+                        'fitterId' => $fitterId,
+                        'productMasterId' => $productMasterId,
+                        'rate' => $productRate
+                    );
+                    $insert = $db->INSERT(TBL_FITTER_PRODUCT_RATE, $R_data);
+                }
                 $fitterSupplyProductData = array(
                     'fitterSupplyId' => $fitterSupplyId,
                     'productMasterId' => $productMasterId,                    

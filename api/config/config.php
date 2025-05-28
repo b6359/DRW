@@ -138,11 +138,16 @@ class DataBase
             $q .= " `$key` = '$val',";
         }
         $q = rtrim($q, ',');
-        $q = $q . " WHERE ";
+        $q .= " WHERE ";
 
+        // FIX: build WHERE clause with AND
+        $where_clauses = [];
         foreach ($where as $key => $val) {
-            $q .= " `$key` = '$val'";
+            $where_clauses[] = "`$key` = '$val'";
         }
+        $q .= implode(" AND ", $where_clauses);
+
+        echo $q;
         if ($this->connection->query($q)) {
             return true;
         } else {
@@ -152,6 +157,7 @@ class DataBase
             );
         }
     }
+
 
     public function compress_image($source_url, $destination_url, $quality)
     {

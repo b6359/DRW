@@ -29,7 +29,28 @@ if ($_REQUEST_METHOD === 'POST') {
             foreach ($productMasterIds as $product) {
                 $productMasterId = $product['productMasterId'];
                 $productQty = (int)$product['qty'];
-            
+                $productRate = (int)$product['rate'];
+
+                $rateResult = $db->connection->query("SELECT * FROM tbl_fitter_product_rate WHERE fitterId=$fitterId AND productMasterId=$productMasterId");
+
+                if ($rateResult->num_rows > 0) {
+                    $rate_data = array(
+                        'rate' => $productRate
+                    );
+                    $rate_where = array(
+                        'fitterId' => $fitterId,
+                        'productMasterId' => $productMasterId
+                    );
+                    $update = $db->UPDATE(TBL_FITTER_PRODUCT_RATE, $rate_data, $rate_where);
+                } else {
+                    $R_data = array(
+                        'fitterId' => $fitterId,
+                        'productMasterId' => $productMasterId,
+                        'rate' => $productRate
+                    );
+                    $insert = $db->INSERT(TBL_FITTER_PRODUCT_RATE, $R_data);
+                }
+
                 $getItemMasterIdsQuery = "
                     SELECT pi.itemMasterId 
                     FROM tbl_product_item pi
@@ -46,10 +67,10 @@ if ($_REQUEST_METHOD === 'POST') {
                         $db->ROW_QUERY($updateItemQuery);
                     }
                 }
-            
+
                 $fitterSupplyProductData = array(
                     'fitterSupplyId' => $fitterSupplyId,
-                    'productMasterId' => $productMasterId,                    
+                    'productMasterId' => $productMasterId,
                     'qty' => $productQty
                 );
                 $db->INSERT(TBL_FITTER_SUPPLY_PRODUCT, $fitterSupplyProductData);
@@ -59,10 +80,10 @@ if ($_REQUEST_METHOD === 'POST') {
                 foreach ($extraItemIds as $extraItem) {
                     $extraItemId = $extraItem['extraItemId'];
                     $extraQty = (int)$extraItem['qty'];
-                
+
                     $updateExtraItemQuery = "UPDATE tbl_item_master SET qty = qty - $extraQty WHERE id = $extraItemId";
                     $db->ROW_QUERY($updateExtraItemQuery);
-                
+
                     $fitterSupplyExtraItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
                         'extraItemId' => $extraItemId,
@@ -76,10 +97,10 @@ if ($_REQUEST_METHOD === 'POST') {
                 foreach ($rejectionItemIds as $rejectionItem) {
                     $rejectionItemId = $rejectionItem['rejectionItemId'];
                     $rejectionQty = (int)$rejectionItem['qty'];
-                
+
                     $updateRejectionItemQuery = "UPDATE tbl_item_master SET qty = qty - $rejectionQty WHERE id = $rejectionItemId";
                     $db->ROW_QUERY($updateRejectionItemQuery);
-                
+
                     $fitterSupplyRejectionItemData = array(
                         'fitterSupplyId' => $fitterSupplyId,
                         'rejectionItemId' => $rejectionItemId,
@@ -107,4 +128,3 @@ if ($_REQUEST_METHOD === 'POST') {
 
 header('Content-Type: application/json');
 echo json_encode($response);
-?>
