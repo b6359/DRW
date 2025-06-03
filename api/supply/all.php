@@ -29,6 +29,9 @@ try {
                     $productResult = $db->SELECT(TBL_PRODUCT_MASTER, null, ['id' => $productMasterId]);
                     $productDetail = ($productResult && $productResult->num_rows > 0) ? $productResult->fetch_assoc() : null;
 
+                    $productSupplyRate = $db->SELECT(TBL_FITTER_PRODUCT_RATE, null, ['productMasterId' => $productMasterId, "fitterId" => $fitterId]);
+                    $rateDetail = ($productSupplyRate && $productSupplyRate->num_rows > 0) ? $productSupplyRate->fetch_assoc() : null;
+
                     // Also get linked items inside product
                     $productItems = [];
                     $productItemResult = $db->SELECT(TBL_PRODUCT_ITEM, null, ['productMasterId' => $productMasterId]);
@@ -46,6 +49,8 @@ try {
 
                     $productList[] = [
                         'product' => $productDetail,
+                        'qty'=> $supplyProduct['qty'],
+                        'supplyRate' => $rateDetail['rate'],
                         'items' => $productItems
                     ];
                 }
